@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Calculator calorii</title>
+
+    <style>
+      #loading, #results {
+        display: none;
+      }
+      #loading {
+        width: 100%;
+      }
+    
+    </style>
+  </head>
+  
+  <body class="bg-pink"> 
+    <nav id="pos" class="navbar navbar-expand-lg navbar-light" style="background-color: #d6cdcfd3; margin-top: 0px; top: 0px; position: fixed; justify-content: space-around;display: flex;transition: 0.5s ease-in-out;align-items: center;width: 100%;"> 
+      <div class="container-fluid" >
+        <a class="navbar-brand" href="index.html">
+          <img src="./images1/logo2.png" style="width: 100px;" alt="Nu s-a putut încărca imaginea :(">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"  style="align-items: center;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           <li style="cursor: pointer;" class="nav-item">
+           <a class="nav-link active" href='index.html' onclick="hideME()" >Acasă</a>
+          </li> 
+          <!-- <li class="nav-item">
+          <a class="nav-link" href='index.html' onclick="hideME()" >Acasă</a> -->
+          <li class="nav-item">
+          <a class="nav-link" href='about.html' onclick="hideME()" >Despre</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href='info.html' onclick="hideME()" >Informații utile</a>
+          </li>  
+          </li> 
+         
+        </ul>
+        
+      </div>
+      </div>
+    
+      </nav>
+    <div class="container" style="justify-content: flex;padding: 50px;">
+      <div class="row" style="position: relative; align-items: center; justify-content: center;">
+        <div class="col-lg-6 mx-auto" style="justify-content: center;">
+          <div class="card card-body text-center mt-5" style="align-items: center;justify-content: center;">
+            <h1 class="heading display-5 pb-3">Calculator calorii</h1>
+            <form id="calorie-form">
+
+              <div class="form-group row">
+                <label for="age" class="col-sm-2 col-form-label">Vârstă</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="age" placeholder="Vârsta 15-80">
+                </div>
+              </div>
+
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0">Gen</legend>
+                  <div class="col-sm-10" id="form-radio">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="male" name="customRadioInline1" class="custom-control-input" checked="checked">
+                      <label class="custom-control-label" for="male">Masculin</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="female" name="customRadioInline1" class="custom-control-input">
+                      <label class="custom-control-label" for="female">Feminin</label>
+                    </div>  
+                  </div>
+                </div> 
+              </fieldset> 
+
+              <div class="form-group row">
+                <label for="weight" class="col-sm-2 col-form-label">Greutate</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="weight" placeholder="În kilograme...">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="height" class="col-sm-2 col-form-label">Înălțime</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="height" placeholder="În centimetrii...">
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <legend class="col-form-label col-sm-2 pt-0">Activitate</legend>
+                <select class="custom-select col-sm-10" id="list">
+                  <option selected value="1">Sedentar (câteva exerciții sau deloc)</option>
+                  <option value="2">Ușor activ (exerciții ușoare/sport 1-3 zile/săptămână)</option>
+                  <option value="3">Moderat activ (exerciții moderate/sport 3-5 zile/săptămână)</option>
+                  <option value="4">Foarte activ (exerciții intense/sport 6-7 zile pe săptămână)</option>
+                  <option value="5">Extra activ (exerciții foarte intense/sport & job fizic)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <input type="submit" value="Calculează" class="btn btn-dark btn-block">
+              </div>
+
+            </form>
+
+            <div id="loading">
+              <img src="./img/Loading.gif" alt="">
+            </div>
+
+            <div id="results" class="pt-4">
+              <h5>Total calorii de consumat:</h5>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="number" class="form-control" id="total-calories" disabled>
+                </div>
+              </div>                       
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

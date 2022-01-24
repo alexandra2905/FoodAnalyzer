@@ -1,0 +1,296 @@
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Știi ce mănânci?!</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/ocr.css">
+	<!-- logo -->
+	<link rel="shortcut icon" href="./images1/iconMain.ico" />
+
+
+<!-- firebase database  link-->
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+<script>
+    // Your web app's Firebase configuration
+	const firebaseConfig = {
+  apiKey: "AIzaSyDqDP1YHdAe9fkX7au46EeUfLGaqx4fUnk",
+  authDomain: "stiicemananci2021.firebaseapp.com",
+  projectId: "stiicemananci2021",
+  storageBucket: "stiicemananci2021.appspot.com",
+  messagingSenderId: "79080171302",
+  appId: "1:79080171302:web:64fe18908272e00e8fc3e7",
+  measurementId: "G-5SXB4F7XZ9"
+};
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  
+  </script>
+
+	<!-- logo -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/4414288e8e.js"></script>
+	<script src='js/tesseract.min.js'></script>
+	<script src="https://platform.fatsecret.com/js?key=XXXXX&auto_load=true"></script>
+	
+	<!-- google fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Squada+One&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+
+	<!-- bootstrap 
+	 -->
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</head>
+  <body>
+<!-- NAvbar  -->
+<nav id="pos" class="navbar navbar-expand-lg navbar-light" style="background-color: #d6cdcfd3; margin-top: 0px; top: 0px; position: relative; justify-content: space-around;display: flex;transition: 0.5s ease-in-out;align-items: center;width: 100%;"> 
+	<div class="container-fluid" >
+	  <a class="navbar-brand" href="#">
+		  <img src="./images1/logo2.png" style="width: 100px;" alt="Nu s-a putut încărca imaginea :(">
+	  </a>
+	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"  style="align-items: center;"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		   <li style="cursor: pointer;" class="nav-item">
+			 <a class="nav-link active" href='index.html' onclick="hideME()" >Acasă</a>
+		  </li> 
+		  <!-- <li class="nav-item">
+			<a class="nav-link" href='index.html' onclick="hideME()" >Acasă</a> -->
+		  <li class="nav-item">
+			<a class="nav-link" href='about.html' onclick="hideME()" >Despre</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href='info.html' onclick="hideME()" >Informații utile</a>
+		  </li>
+		  
+		 
+		  </li> 
+		 
+		</ul>
+		
+	</div>
+	</div>
+
+  </nav>
+
+<!-- part no 1 -->
+
+<div id='LoginPart'>
+
+	 <div style="  flex-direction: column;">
+		<div class="mainSHow">
+			<div id="fly-in">  
+				<div><span>Bine ai venit!</span>Știi ce mănânci?!</div>
+<div>Verifici ceea ce cumperi?</div>
+<div>Ar fi interesant  <span>să știi ce este bine pentru tine?</span></div>
+<div><span>Te afii unde trebuie!</span></div>
+
+			
+			</div>
+
+		</div>
+						 
+			<p class="mainSHowp">  <!-- aici trebuie să aduag textul care apare pe prima pagină -->
+				
+				<!-- aici as putea adauga imaginea pe care o doresc -->
+			</p>
+			<img src="./images1/man.png" style="width: 400px;" alt="Nu s-a putut încărca imaginea :(">
+	</div>
+	
+
+
+
+	<div class="getstart" onclick="Goto()"> 
+		<!-- butonul de start -->
+		Să începem!
+	</div>
+
+
+
+</div>
+
+
+
+
+
+<!-- Part no 2 -->
+<div id="mainPart">
+
+<!-- navbar -->
+
+	
+<div style="width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; margin-top: 50px;">
+
+
+</div>
+
+
+      <main>
+          <div class="container mt-3">
+			  <div  id="mainFlex">
+				  <div >
+						<select id="langsel">
+
+							<option value='eng'     > English       </option>
+					
+							<option value='ron'     > Romanian              </option>
+					
+						</select>
+				  </div>
+						<div >
+							<input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected"  accept="image/*">
+							<label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Încarcă o listă de ingrediente&hellip;</span></label>
+						</div>
+			  </div>
+			  <div class="row">
+				  <div class="col-12 col-md-5" >
+					<div class="image-container"><img id="selected-image"  src="images1/Funny-Minion-Quotes.jpg" class="col-12 p-0" /></div>
+				  </div>
+				  <div class="col-12 col-md-1">
+					<i id="arrow-right" class="fas fa-arrow-right d-none d-md-block"></i>
+					<i id="arrow-down" class="fas fa-arrow-down d-block d-md-none"></i>
+				  </div>
+				  <div class="col-12 col-md-6">
+					<div onclick="Log()" id="log" style="background-color: #fff;visibility: hidden;">
+							<span id="startPre">	
+								<a id="startLink" href="#">Click here to recognize text in the demo</a>
+								<br/> or choose your own image
+							</span>
+					</div>
+				</div>
+			  </div>
+		</div>
+
+
+
+		
+	  </main>
+	  
+	 
+	  <div id="mainLists">
+		<div  id="goodONe">
+		Ingrediente bune
+			
+		</div>
+		<div  id="BadONe">
+			Ingrediente periculoase			
+			</div>
+
+			<div  id="Allgiens">
+				Alergeni
+		
+				
+				</div>
+
+			<div id="mainLists1">
+
+				<div id="analy">
+					<div class="analytics">
+						Rezultatul analizei
+						
+						
+						
+						
+						</div>
+				<div id="Total">
+					Ingrediente totale:Not Specified
+				
+				</div>
+				
+				
+				
+				<div id="GoodPer">
+					Ingrediente bune găsite:0(0%)
+					</div>
+				
+				
+				
+				<div id="BadIngred">
+				Ingrediente periculoase găsite:0(0%)
+				</div>
+
+
+
+				<div id="Allegi">
+					 Alergeni:0(0%)
+					</div>
+				</div>
+				
+				
+				
+					</div>
+		
+	</div>
+
+
+
+
+	<div id="my_container" class="fatsecret_container"></div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+	  <script src="js/tesseract-ocr.js"></script>
+	</body>
+
+
+
+
+	<script>
+  function hideME()
+  {
+	  document.getElementById('navbarSupportedContent').style.display='none'
+
+
+
+		console.log("Woring>>>");
+  }
+
+  function ShowMe(){
+	document.getElementById('navbarSupportedContent').style.display='block'
+ 
+  }
+
+
+  let Goto=()=>{
+	  document.getElementById('mainPart').style.display='block'
+	  document.getElementById('LoginPart').style.display='none'
+  }
+
+
+
+  let Log=()=>{
+	  console.log("copied!!!!");
+
+
+
+	  var text = document.getElementById('log').childNodes[0].childNodes[0].innerHTML;
+	  console.log(text);
+navigator.clipboard.writeText(text).then(function() {
+//   console.log('Async: Copying to clipboard was successful!');
+}, function(err) {
+//   console.error('Async: Could not copy text: ', err);
+});
+  }
+
+  fatsecret.setContainer("my_container");
+	fatsecret.setCanvas("home");
+</script>
+	</script>
+</html>
